@@ -226,8 +226,8 @@ export const moreWork: MiniProject[] = [
     description:
       "A logistics platform designed to simplify shipping and delivery management through a responsive interface for handling shipments, tracking deliveries, and accessing essential logistics services.",
     technology: ["React", "Tailwind CSS"],
-    liveUrl: "https://shyn-works.vercel.app/",
-    githubUrl: "https://github.com/webfyredev/ShynWorks",
+    liveUrl: "https://swift-ease.vercel.app/",
+    githubUrl: "https://github.com/webfyredev/SwiftEase",
     image: "/projects/ease.jpg",
   },
   
