@@ -17,17 +17,16 @@ const focusAreas = [
 export default function About() {
   return (
     <section id="about" className="section-pad border-b border-line overflow-hidden">
-      <div className="container-content grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
+      <div className="container-content grid gap-12 lg:grid-cols-[0.9fr_1.1fr] md:gap-16">
         <div>
           <motion.div 
             {...slideLeft}
-            className="w-full md:max-w-[280px]">
+            className="w-full lg:max-w-[400px] lg:h-[50vh]">
             <CoverImage
               src={siteConfig.portraitImage}
               alt={siteConfig.name}
               label="Add your portrait"
               hint="/public/portrait.jpg"
-              aspect="aspect-[4/5]"
             />
           </motion.div>
           <motion.h2 
@@ -46,7 +45,7 @@ export default function About() {
               requirements into functional digital products.
             </p>
             <p>
-              I work across both sides of an application — building
+              I work across both sides of an application building
               responsive interfaces with React, Next.js and TypeScript while
               developing APIs, authentication, backend logic and
               database-backed systems with Django, Django REST Framework and

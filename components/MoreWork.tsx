@@ -15,7 +15,7 @@ export default function MoreWork() {
           Additional projects
         </motion.h2>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {moreWork.map((project) => (
             <motion.div 
               {...scrollUpDelayed}

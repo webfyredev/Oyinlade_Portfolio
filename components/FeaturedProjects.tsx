@@ -18,8 +18,8 @@ export default function FeaturedProjects() {
           <motion.p 
             {...scrollUpDelayed}
             className="mt-4 text-[15.5px] leading-relaxed text-ink-muted">
-            Three projects, presented as case studies rather than screenshots
-            — what the problem was, how the system was built, and what it
+            These projects are presented as case studies rather than screenshots
+            what the problem was, how the system was built, and what it
             does today.
           </motion.p>
         </div>

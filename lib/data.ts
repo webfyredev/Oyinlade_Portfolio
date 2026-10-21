@@ -21,10 +21,10 @@ export const navLinks = [
 ];
 
 export const credibilityStats = [
-  { value: "5+", label: "Projects shipped" },
-  { value: "2", label: "Layers owned — UI & API" },
-  { value: "5", label: "Domains: health, logistics, education, nonprofit, business" },
-  { value: "100%", label: "Full-stack — frontend and backend" },
+  { value: "7", label: "Websites built across different industries" },
+  { value: "1", label: "End-to-end full-stack platform: LifeCare" },
+  { value: "React + Django", label: "Core frontend and backend stack" },
+  { value: "2023-2026", label: "Web development journey" },
 ];
 
 export const capabilities = [
@@ -86,8 +86,8 @@ export type CaseStudy = {
   technology: string[];
   liveUrl?: string;
   githubUrl?: string;
-  // e.g. "/projects/lifecare-cover.jpg" — put the file at /public/projects/lifecare-cover.jpg
-  image?: string;
+  githubBackendUrl? : string,
+  video?: string;
 };
 
 export const featuredProjects: CaseStudy[] = [
@@ -96,13 +96,13 @@ export const featuredProjects: CaseStudy[] = [
     name: "LifeCare",
     category: "Healthcare Management Platform",
     summary:
-      "A healthcare platform with separate patient and doctor experiences, built to keep clinical information organized without collapsing two very different workflows into one interface.",
+      "A full-stack healthcare platform featuring dedicated workflows for patients, doctors, and system administrators, built to manage clinical data and user roles without collapsing three distinct environments into one interface.",
     problem:
-      "Healthcare platforms need to serve people with very different responsibilities — patients and doctors — while keeping medical information organized, accurate and accessible to the right person at the right time.",
+      "Healthcare platforms need to serve users with very different responsibilities  patients seeking care, doctors managing clinical schedules, and admins overseeing platform operations  while keeping medical information organized, secure, and accessible to the right person.",
     approach:
-      "I started by separating the two roles at the data and routing level, not just visually. Patients and doctors authenticate into the same platform but land in dashboards built around what each role actually needs to do day to day.",
+      "I built a role-based architecture by separating permissions at both the API and routing levels. Rather than three disconnected apps, patients, doctors, and admins authenticate into a unified backend but land in tailored dashboards designed around their specific daily responsibilities.",
     solution:
-      "A full-stack healthcare platform with dedicated patient and doctor experiences. Each role interacts with the system according to their responsibilities, backed by a shared API and database rather than two disconnected apps.",
+      "A production-ready healthcare web application backed by a shared PostgreSQL database and Django REST Framework API. It provides a patient portal for medical history and bookings, a doctor portal for patient management, and an admin dashboard for complete system and user oversight.",
     featureGroups: [
       {
         heading: "Patient Dashboard",
@@ -127,160 +127,33 @@ export const featuredProjects: CaseStudy[] = [
           "Profile management",
         ],
       },
+      {
+        heading: "Admin Dashboard",
+        items: [
+          "Manage users (patients, doctors, admins)",
+          "Manage appointments",
+          "Manage prescriptions",
+          "Manage notifications",
+          "Manage Medical information",
+        ],
+      }
     ],
     technicalDecisions: [
-      "Role-based authentication that determines which dashboard and API permissions a user receives after login.",
-      "A shared PostgreSQL schema for patients, doctors, appointments and prescriptions, accessed through a single Django REST Framework API.",
-      "Frontend built as reusable components so the same dashboard shell renders different content depending on role.",
+      "Role-based authentication that dynamically determines dashboard routing and API permissions after login.",
+      "A shared PostgreSQL schema for patients, doctors, admins, appointments, and prescriptions, accessed through a single Django REST Framework API.",
+      "Frontend component architecture designed so shared layout shells render role-specific views dynamically.",
     ],
     challenges: [
-      "Keeping one codebase serving two roles without the interface becoming a maze of conditionals.",
-      "Structuring the API so patient-facing and doctor-facing endpoints enforce the correct permissions consistently.",
+      "Maintaining a single codebase serving three distinct roles without the frontend and routing becoming weighed down by conditional logic.",
+      "Structuring API endpoints to consistently enforce strict permissions across patient-facing, doctor-facing, and admin-facing requests.",
     ],
     result:
-      "A working full-stack platform demonstrating role-based dashboards, authentication and a REST API backing two distinct, database-driven workflows.",
+      "A fully deployed production platform demonstrating multi-role authentication, tailored dashboards, and a robust REST API backing three distinct, database-driven workflows.",
     technology: ["React", "Django", "Django REST Framework", "PostgreSQL", "Tailwind CSS"],
     liveUrl: "https://life-care-websites.vercel.app/",
     githubUrl: "https://github.com/webfyredev/LifeCare_Websites",
-    // e.g. "/projects/lifecare-cover.jpg"
-    image: "",
-  },
-  {
-    slug: "swiftease",
-    name: "SwiftEase",
-    category: "Logistics Management Platform",
-    summary:
-      "A logistics platform where the dashboard, not the landing page, is the product — built around booking, tracking and managing shipments end to end.",
-    problem:
-      "Shipping customers need more than a landing page. They need a centralized way to manage shipments, monitor delivery activity, access support and keep track of their logistics information.",
-    approach:
-      "I treated the dashboard as the core product from the start: every shipment action — booking, tracking, scheduling — needed to read from and write to the same backend state, with the UI reflecting real shipment status rather than static content.",
-    solution:
-      "A logistics platform with a dedicated user dashboard that brings shipment management, tracking, scheduling, wallet activity, notifications and support into one experience.",
-    featureGroups: [
-      {
-        heading: "User Dashboard",
-        items: [
-          "Book a shipment",
-        "View shipment details",
-        "Track shipment in real-time",
-        "Schedule a pickup",
-        "Wallet & top-up",
-        "Pay for shipment (card, wallet, COD)",
-        "Download shipment label (PDF)",
-        "Support tickets",
-        "Notifications (SMS, email, in-app)",
-        "Shipment history & filters",
-        "Rate & review delivery",
-        "Profile & password management",
-        ],
-      },
-      {
-        heading: "Driver Dashboard",
-        items: [
-          "View assigned deliveries",
-        "Mark shipment as picked up",
-        "Mark shipment as out for delivery",
-        "Complete delivery (proof of delivery)",
-        "Upload delivery photo",
-        "Capture receiver signature",
-        "Toggle on-duty / off-duty status",
-        "Live GPS location update",
-        "View delivery history",
-        "View vehicle & branch info",
-        "Notifications for new assignments",
-        "Profile management",
-        ],
-      },
-      {
-        heading: "Staff / Admin Dashboard",
-        items: [
-          "Overview KPIs (shipments, revenue, drivers)",
-        "Create & manage shipments",
-        "Assign drivers to shipments",
-        "Add tracking events to shipments",
-        "Manage customers & accounts",
-        "Manage drivers & driver profiles",
-        "Manage vehicles & fleet",
-        "Manage branches / hubs",
-        "Manage service types & pricing",
-        "Manage pickup schedules",
-        "Payments & revenue reports",
-        "Wallet transactions overview",
-        "Support ticket management & replies",
-        "Notifications broadcast",
-        "Analytics & charts",
-        "Staff management (Admin only)",
-        "Export reports (PDF / CSV)",
-        ],
-      },
-    ],
-    technicalDecisions: [
-      "State management structured around shipment status so tracking, history and notifications stay in sync from one source of truth.",
-      "REST API endpoints in Django REST Framework for shipment creation, tracking updates, wallet transactions and support tickets.",
-      "Loading and error states handled explicitly across the dashboard so incomplete or failed requests never render as false success.",
-    ],
-    challenges: [
-      "Coordinating several dependent workflows — booking, scheduling, tracking, wallet — inside a single dashboard without state drifting out of sync.",
-      "Designing a data-driven UI that stays legible as the number of active shipments grows.",
-    ],
-    result:
-      "A functional logistics dashboard demonstrating complex, multi-workflow state management backed by a Django REST API and PostgreSQL.",
-    technology: ["React", "Next.js", "Django", "Django REST Framework", "PostgreSQL", "Tailwind CSS"],
-    liveUrl: "https://swift-ease.vercel.app/",
-    githubUrl: "https://github.com/webfyredev/SwiftEase",
-    // e.g. "/projects/swiftease-cover.jpg"
-    image: "",
-  },
-  {
-    slug: "bidora",
-    name: "Bidora",
-    category: "Auction Marketplace Platform",
-    summary:
-      "A full-stack auction marketplace where users discover items, place competitive bids and create their own auctions — a Next.js frontend built on top of an existing Django REST Framework backend.",
-    problem:
-      "Auction platforms live or die on trust in the number on screen. Buyers need to always know the real current price and time remaining, and none of that works if the frontend and backend don't agree on a single source of truth for price and auction state.",
-    approach:
-      "I treated the Django REST Framework API as the source of truth throughout — building a typed API layer around the actual auction and bid models rather than assuming a data shape, and designing the bidding UI around what the backend could really validate instead of duplicating that logic on the client.",
-    solution:
-      "A full-stack marketplace frontend covering discovery, bidding, auction creation and a personal dashboard, with current price, auction status and bid history kept in sync with the backend through scheduled polling rather than pretending to have real-time infrastructure that didn't exist.",
-    featureGroups: [
-      {
-        heading: "Marketplace",
-        items: [
-          "Auction discovery with search, filter and sort",
-          "Auction detail page with live price and countdown",
-          "Bidding with a confirmation step and backend-validated errors",
-          "Bid history",
-        ],
-      },
-      {
-        heading: "Account Dashboard",
-        items: [
-          "Create auction flow",
-          "My Auctions (edit / delete)",
-          "My Bids",
-          "Won auctions",
-          "Profile",
-          "JWT-based authentication with protected routes",
-        ],
-      },
-    ],
-    technicalDecisions: [
-      "Centralized every API call through one typed client instead of scattering fetch() calls, so the whole frontend adapts to the real backend contract from a single place.",
-      "Polled the auction detail page every 15 seconds while an auction is active instead of building fake real-time bidding, since the backend has no WebSocket layer.",
-      "Kept client-side bid validation minimal — checking the bid is higher than the current price — and let the backend remain the actual authority, surfacing its real error messages instead of inventing rules.",
-    ],
-    challenges: [
-      "Structuring a typed frontend around an API contract, with every assumption isolated in one place so it's fast to correct once wired to a live environment.",
-      "Keeping the current price and bid history feel trustworthy without overselling update speed as real-time.",
-    ],
-    result:
-      "A working full-stack marketplace demonstrating auction discovery, an end-to-end bidding flow, protected dashboard routes and a typed API layer built to integrate cleanly with a Django backend.",
-    technology: ["Next.js", "TypeScript", "Tailwind CSS", "Django", "Django REST Framework", "PostgreSQL"],
-    liveUrl: "#", // add your deployed URL
-    githubUrl: "#", // add your repo URL
-    image: "/projects/bidora-cover.jpg",
+    githubBackendUrl : "https://github.com/webfyredev/Lifecare_Backend",
+    video: "/projects/lifecare_vid.mp4"
   },
 ]
 
@@ -346,6 +219,16 @@ export const moreWork: MiniProject[] = [
     liveUrl: "https://shyn-works.vercel.app/",
     githubUrl: "https://github.com/webfyredev/ShynWorks",
     image: "/projects/shynwork.jpg",
+  },
+  {
+    name: "SwiftEase",
+    category: "Logistics Platforms",
+    description:
+      "A logistics platform designed to simplify shipping and delivery management through a responsive interface for handling shipments, tracking deliveries, and accessing essential logistics services.",
+    technology: ["React", "Tailwind CSS"],
+    liveUrl: "https://shyn-works.vercel.app/",
+    githubUrl: "https://github.com/webfyredev/ShynWorks",
+    image: "/projects/ease.jpg",
   },
   
 ];
@@ -414,25 +297,30 @@ export const architectureLayers = [
   { label: "PostgreSQL", detail: "Persists application data" },
 ];
 
+
 export const journey = [
   {
     year: "2023",
-    title: "Foundations",
-    description: "Learned the fundamentals of web development and began building interfaces.",
+    title: "Web Development Foundations",
+    description:
+      "Started learning the fundamentals of web development and building my foundation in creating websites.",
   },
   {
     year: "2024",
-    title: "Frontend Engineering",
-    description: "Moved into React and started building interactive, responsive applications.",
+    title: "Web Development & Early Django Projects",
+    description:
+      "Built websites with HTML and CSS and explored Django while developing an early school portal project.",
   },
   {
     year: "2025",
-    title: "Backend Engineering",
-    description: "Expanded into Django, REST APIs, authentication and databases.",
+    title: "Frontend Development with React",
+    description:
+      "Focused on React and building interactive web applications, while experimenting with Django to introduce backend functionality into selected projects.",
   },
   {
     year: "2026",
-    title: "Full-Stack Product Development",
-    description: "Combined frontend and backend engineering to build complete, deployable digital products.",
+    title: "Full-Stack Development",
+    description:
+      "Deepened my backend engineering skills with Django, REST APIs, authentication, and databases, bringing frontend and backend development together through projects like LifeCare.",
   },
 ];

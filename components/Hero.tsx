@@ -8,7 +8,7 @@ export default function Hero() {
         className="pointer-events-none absolute -top-40 right-[-10%] h-[420px] w-[420px] rounded-full bg-accent/10 blur-[120px]"
         aria-hidden="true"
       />
-      <div className="container-content relative grid gap-14 pb-20 pt-16 md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pb-28 md:pt-24">
+      <div className="container-content relative grid gap-14 pb-20 pt-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:pb-28 lg:pt-24">
         <div className="animate-rise">
           <motion.p 
             {...scrollUp}
@@ -18,13 +18,13 @@ export default function Hero() {
 
           <motion.h1 
             {...scaleFade}
-            className="mt-5 max-w-xl text-[2.5rem] font-medium leading-[1.08] tracking-tight text-white sm:text-[3.1rem]">
+            className="mt-5 max-w-xl text-[2.5rem] font-medium leading-[1.08] tracking-tight text-white md:text-[3.2rem]">
             I build digital products that solve real problems.
           </motion.h1>
 
           <motion.p 
             {...scrollUpDelayed}
-            className="mt-6 max-w-md text-[16px] leading-relaxed text-ink-muted">
+            className="mt-6 max-w-md text-[13px] md:text-[16px] leading-relaxed text-ink-muted">
             I&apos;m a full-stack developer who builds responsive web experiences,
             scalable backend systems and the APIs that connect them. I work
             across React, Next.js, TypeScript, Django and PostgreSQL to turn
@@ -50,7 +50,7 @@ export default function Hero() {
 
           <motion.dl 
             {...slideLeft}
-            className="mt-14 grid max-w-md grid-cols-2 gap-8 border-t border-line pt-8">
+            className="mt-14 grid max-w-md md:grid-cols-2 gap-8 border-t border-line pt-8">
             <div>
               <dt className="font-mono text-[12px] text-ink-faint">Frontend</dt>
               <dd className="mt-1 text-[14px] text-ink-muted">
@@ -66,10 +66,10 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        <div className="relative flex items-center justify-center md:justify-end" aria-hidden="true">
+        <div className="relative flex items-center justify-center lg:justify-end" aria-hidden="true">
           <motion.div 
             {...slideRight}
-            className="w-full max-w-[380px] rounded-xl border border-line bg-surface-1 shadow-2xl">
+            className="w-full lg:max-w-[380px] rounded-xl border border-line bg-surface-1 shadow-2xl">
             <div className="flex items-center gap-1.5 border-b border-line px-4 py-3">
               <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
               <span className="h-2.5 w-2.5 rounded-full bg-white/15" />

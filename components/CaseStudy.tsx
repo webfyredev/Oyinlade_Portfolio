@@ -3,6 +3,7 @@ import type { CaseStudy as CaseStudyType } from "@/lib/data";
 import CoverImage from "@/components/media/CoverImage";
 import { motion } from 'framer-motion'
 import { scrollUpDelayed, slideLeft, slideRight, statContainer, statItem } from "@/lib/effect";
+import CoverVideo from "./media/CoverVideo";
 
 const structure = [
   "Overview",
@@ -35,7 +36,7 @@ function DashboardPreview({
         </div>
         <span className="font-mono text-[11px] text-ink-faint">dashboard</span>
       </div>
-      <div className="grid gap-4 p-5 sm:grid-cols-2">
+      <div className="grid gap-4 p-5 lg:grid-cols-2">
         {groups.map((group) => (
           <div key={group.heading} className="rounded-lg border border-line bg-surface-2 p-4">
             <p className="font-mono text-[11px] text-accent-soft">
@@ -70,11 +71,11 @@ export default function CaseStudy({
       id={idPrefix}
       className="border-b border-line py-16 first:pt-0 last:border-none md:py-24 overflow-hidden"
     >
-      <div className="grid gap-10 md:grid-cols-[200px_1fr] md:gap-16">
+      <div className="grid gap-10 lg:grid-cols-[200px_1fr] lg:gap-16">
         {/* Sticky index rail */}
         <motion.div 
           {...slideLeft}
-          className="hidden md:block">
+          className="hidden lg:block">
           <div className="sticky top-28">
             <p className="font-mono text-[12px] text-ink-faint">
               {String(index + 1).padStart(2, "0")} / 03
@@ -119,7 +120,15 @@ export default function CaseStudy({
                   href={project.githubUrl}
                   className="rounded-md border border-line-strong px-4 py-2 text-[13px] text-ink transition-colors hover:border-accent/50 hover:text-white"
                 >
-                  GitHub
+                  Frontend Repo
+                </a>
+              )}
+              {project.githubBackendUrl && (
+                <a
+                  href={project.githubBackendUrl}
+                  className="hidden md:flex rounded-md border border-line-strong px-4 py-2 text-[13px] text-ink transition-colors hover:border-accent/50 hover:text-white"
+                >
+                  Backend Repo
                 </a>
               )}
             </div>
@@ -130,13 +139,13 @@ export default function CaseStudy({
           </p>
 
           <div className="mt-8">
-            <CoverImage
-              src={project.image}
-              alt={`${project.name} screenshot`}
-              label={`Add a ${project.name} screenshot`}
-              hint={`/public/projects/${project.slug}-cover.jpg · 1600×900`}
-              aspect="aspect-video"
-              priority={index === 0}
+            <CoverVideo
+              src="/projects/lifecare.mp4"
+              label="LifeCare platform preview"
+              autoPlay
+              loop
+              muted
+              controls={false}
             />
           </div>
 
@@ -146,7 +155,7 @@ export default function CaseStudy({
             initial= "initial"
             whileInView="whileInView"
             viewport = {{ once: false, amount : 0.3}}
-            className="mt-12 grid gap-8 sm:grid-cols-3">
+            className="mt-12 grid gap-8 lg:sm:grid-cols-3">
             <motion.div
               variants={statItem}
             >
@@ -184,7 +193,7 @@ export default function CaseStudy({
           {/* Technical decisions + challenges */}
           <motion.div 
             {...scrollUpDelayed}
-            className="mt-12 grid gap-10 sm:grid-cols-2">
+            className="mt-12 grid gap-10 lg:grid-cols-2">
             <div>
               <p className="font-mono text-[11px] text-ink-faint">
                 Technical Decisions

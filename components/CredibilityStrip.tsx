@@ -8,14 +8,14 @@ export default function CredibilityStrip() {
     <section className="border-b border-line overflow-hidden" aria-label="Credibility summary">
       <motion.div 
         variants={statContainer}
-        className="container-content grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-12">
+        className="container-content grid grid-cols-2 gap-8 py-10 lg:grid-cols-4 md:py-12">
         {credibilityStats.map((stat) => (
           <motion.div 
             variants={statItem}
             initial = "initial"
             whileInView="whileInView"
             key={stat.label}>
-            <p className="font-mono text-[26px] font-medium text-white md:text-[30px]">
+            <p className="font-mono text-[20px] md:text-[26px] font-medium text-white md:text-[30px]">
               {stat.value}
             </p>
             <p className="mt-1.5 text-[13px] leading-snug text-ink-muted">

@@ -20,14 +20,14 @@ export default function CoverImage({
 }) {
   if (src) {
     return (
-      <div className={`relative ${aspect} w-full overflow-hidden rounded-xl border border-line bg-surface-1 group`}>
+      <div className={`relative ${aspect} w-full h-full overflow-hidden rounded-xl border border-line bg-surface-1 group`}>
         <Image
           src={src}
           alt={alt}
           fill
           priority={priority}
           sizes={sizes}
-          className="object-cover group-hover:scale-105 transition-all duration-300"
+          className="object-cover transition-all duration-300"
         />
       </div>
     );

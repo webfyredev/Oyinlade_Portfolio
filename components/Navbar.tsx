@@ -25,7 +25,7 @@ export default function Navbar() {
           Oyinlade<span className="text-accent">.</span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -37,7 +37,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <a
             href="#contact"
             className="rounded-md bg-accent px-4 py-2 text-[14px] font-medium text-white transition-colors hover:bg-accent-soft"
@@ -48,7 +48,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-ink md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-md text-ink lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -77,11 +77,11 @@ export default function Navbar() {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="border-t border-line bg-base px-6 pb-6 pt-2 md:hidden"
+          className="border-t border-line bg-base px-6 pb-6 pt-2 lg:hidden"
         >
           <ul className="flex flex-col">
             {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-line/60 last:border-none">
+              <li key={link.href} className=" last:border-none">
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}

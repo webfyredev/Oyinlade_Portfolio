@@ -1,10 +1,13 @@
+"use client";
 import { siteConfig } from "@/lib/data";
 import CoverImage from "@/components/media/CoverImage";
+import { motion } from 'framer-motion'
+import { slideLeft } from "@/lib/effect";
 
 export default function Contact() {
   return (
     <section id="contact" className="section-pad border-b border-line overflow-hidden">
-      <div className="container-content grid items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+      <div className="container-content grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
           <h2 className="text-[2.2rem] font-medium leading-tight tracking-tight text-white sm:text-[2.6rem]">
             Have a problem worth solving?
@@ -40,12 +43,16 @@ export default function Contact() {
           </p>
         </div>
 
-        <CoverImage
-          src={siteConfig.contactImage}
-          alt="Contact visual"
-          label="Add a visual here"
-          aspect="aspect-[4/5]"
-        />
+        <motion.div 
+            {...slideLeft}
+            className="w-full lg:w-[500px] lg:h-[50vh]">
+            <CoverImage
+              src={siteConfig.contactImage}
+              alt={siteConfig.name}
+              label="Add your portrait"
+              hint="/public/portrait.jpg"
+            />
+          </motion.div>
       </div>
     </section>
   );

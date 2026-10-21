@@ -28,7 +28,7 @@ export default function Approach() {
           variants={statContainer}
           initial="initial"
           whileInView="whileInView"
-          className="mt-12 grid gap-0 divide-y divide-line border-y border-line sm:grid-cols-5 sm:gap-0 sm:divide-x sm:divide-y-0">
+          className="mt-12 grid gap-0 divide-y divide-line border-y border-line md:grid-cols-2 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-y-0">
           {approachSteps.map((step) => {
             const Icon = icons[step.number];
             return (
